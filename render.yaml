@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: rentease-api
+    env: node
+    plan: free
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000 # Render จะ override อัตโนมัติด้วย PORT จริง
+      # เพิ่ม environment variables อื่น ๆ ที่จำเป็น เช่น SUPABASE_URL, SUPABASE_KEY, JWT_SECRET, ฯลฯ
+    autoDeploy: true 
